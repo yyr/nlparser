@@ -1,9 +1,14 @@
-#!/usr/bin/env python
-'''
+# Import README.rst using cog
+# [[[cog
+# from cog import out
+# out('"""\n{0}\n"""'.format(file('../README.rst').read()))
+# ]]]
+"""
 ==========================================================================
     nlparser - Python module to manipulate Fortran namelist files.
 ==========================================================================
 
+# [[[end]]]
 DATE    = "Thursday, May 25 2013"
 AUTHOR  = "Yagnesh Raghava Yakkala"
 WEBSITE = "http://github.com/yyr/nlparser"
