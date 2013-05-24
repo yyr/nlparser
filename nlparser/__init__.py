@@ -4,25 +4,20 @@
     nlparser - Python module to manipulate Fortran namelist files.
 ==========================================================================
 
-Install
--------
-
-Usage
------
-
-Read
-----
-
-write
------
+DATE    = "Thursday, May 25 2013"
+AUTHOR  = "Yagnesh Raghava Yakkala"
+WEBSITE = "http://github.com/yyr/nlparser"
+LICENSE = "GPL v3 or later"
+VERSION = '0.1-dev'
 
 
-'''
-__date__    = "Thursday, February 14 2013"
-__author__  = "Yagnesh Raghava Yakkala"
-__website__ = "http://github.com/yyr/nlparser"
-__license__ = "GPL v3 or later"
-__version__ = '0.0.0'
+
+def parse_lines(lines, filename):
+    """
+    """
+    return Namelist(lines, filename=filename)
+
+
 
 
 
