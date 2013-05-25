@@ -15,6 +15,7 @@ WEBSITE = "http://github.com/yyr/nlparser"
 LICENSE = "GPL v3 or later"
 VERSION = '0.1-dev'
 
+from .core import NameList
 
 
 def parse_lines(lines, filename):
