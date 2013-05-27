@@ -1,0 +1,14 @@
+! a comment
+
+&sec
+  k = 0.
+  k1 = (0,2)
+/
+
+! another comment
+&sec
+  kInt = 0
+  kcomplex = (0,2)
+  ! yet another comment
+  kbool = T T F F
+/

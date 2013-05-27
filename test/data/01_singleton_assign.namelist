@@ -1,0 +1,6 @@
+&TTDATA
+ TTREAL =  1.,
+ TTINTEGER = 2,
+ TTCOMPLEX = (3.,4.),
+ TTCHAR = 'namelist',
+ TTBOOL = T/

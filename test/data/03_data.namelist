@@ -1,0 +1,4 @@
+&XXDATA
+ XXREAL =  1.,
+ XXINTEGER = 2,
+ XXCOMPLEX = (3.,4.)/
