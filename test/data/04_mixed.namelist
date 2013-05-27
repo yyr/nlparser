@@ -1,3 +1,4 @@
+! copied from http://owen.sj.ca.us/~rk/howto/slides/f90model/slides/namelist.html
 &TTDATA
  TTREAL =  1.,
  TTINTEGER = 2,
