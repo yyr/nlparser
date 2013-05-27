@@ -18,7 +18,6 @@ Fotran namelist files are in the following pattern.
 
 import re
 
-
 class Namelist(dict):
     """Read and Keep the Fortran namelist files. """
     def __init__(self, lines, filename="<undefined>"):

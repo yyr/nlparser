@@ -18,7 +18,7 @@ LICENSE = "GPL v3 or later"
 VERSION = '0.1-dev'
 
 import codecs
-from .core import Namelist
+from .namelist import Namelist
 
 
 def _parse_lines(lines, filename):
