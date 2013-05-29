@@ -18,31 +18,43 @@ Fotran namelist files are in the following pattern.
 
 import re
 
-class Namelist(dict):
+VARSTRING = r'\b[a-zA-Z][a-zA-Z0-9_]*\b'
+SPACES = r'[\t\s]*'
+RE_EMPTY_LINE = re.compile(r'[\t\s]*\n')
+RE_SECT_NAME = re.compile(r"[\t\s]*&(" + VARSTRING + r")[\t\s]*$")
+RE_SECT_END = re.compile(r"^[\t\s]*[/|\$END|\$end][\t\s]*")
+RE_COMMENT_LINE = re.compile(r'^[\t\s]*!')
+
+
+class Namelist(object):
     """Read and Keep the Fortran namelist files. """
-    def __init__(self, lines, filename="<undefined>"):
-        self.__init__(self)
+    def __init__(self, lines, filename="<lines>"):
         self._filename = filename
-        self._lines = lines
-        self.update(self.parse())
+        self._raw = lines
 
-    def parse(self):
-        # re patterns
-        varstring = r'\b[a-zA-Z][a-zA-Z0-9_]*\b'
-        spaces = r'[\t\s]*'
+    @property
+    def raw(self):
+        return self._raw
 
-        sectname = re.compile(r"^[\t\s]*&(" + varstring + r")[\t\s]*$")
-        sectend = re.compile(r"^[\t\s]*/[\t\s]*$")
+    def lines_to_sections(self, lines=None):
+        """ split into sections, remove empty line and comment line"""
+        if not lines:
+            lines = self.raw
 
-        nl = {}                 # this is going to returned
-        sect = ''
+        section = []
+        sections = []
+        for l in lines:
+            if RE_EMPTY_LINE.search(l) or RE_COMMENT_LINE.search(l) or l == '':
+                continue        # clean comment line and empty lines.
 
-        for line in self._lines.split("\n+"):
-            if re.match(secname, line):
-                sect = re.sub(secname, r"\1",line)
-                nl[sect] = {
-                    'raw' : [],
-                    'par' : [{}]
-                }
-            elif re.match(re.sub):
-                pass
+            if RE_SECT_NAME.search(l):
+                section = []
+
+            section.append(l)
+
+            if RE_SECT_END.search(l):
+                # sections[sec_name] = section
+                sections.append(section)
+                section = []
+
+        return sections
